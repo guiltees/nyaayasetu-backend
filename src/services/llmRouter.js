@@ -83,7 +83,7 @@ export async function callGPT({ systemPrompt, userPrompt, maxTokens = 4096 }) {
 // ── Gemini Flash (voice/classification/Hindi) ──────────────────────────────────
 
 export async function callGemini({ prompt, imageBase64 = null, mimeType = null }) {
-  const model = getGenAI().getGenerativeModel({ model: 'gemini-2.0-flash' });
+  const model = getGenAI().getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   const parts = [{ text: prompt }];
   if (imageBase64 && mimeType) {
@@ -101,7 +101,7 @@ export async function callGemini({ prompt, imageBase64 = null, mimeType = null }
  * @param {string} language     — "en" | "hi" | "auto"
  */
 export async function transcribeAudio({ audioBase64, mimeType, language = 'auto' }) {
-  const model = getGenAI().getGenerativeModel({ model: 'gemini-2.0-flash' });
+  const model = getGenAI().getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   const langHint = language === 'hi'
     ? 'The audio is in Hindi. Transcribe in Hindi Devanagari, then provide an English translation.'
